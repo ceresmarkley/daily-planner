@@ -1,5 +1,9 @@
+:root {
+  --mainfFont: 'Cherry Bomb One', cursive;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--mainfFont);
   font-size: 16px;
 }
 

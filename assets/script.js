@@ -31,27 +31,6 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-
-  // Get the current hour.
-  var currentHour = dayjs().hour();
-
-  // Loop over time blocks and add the appropriate class.
-  $('.time-block').each(function () {
-    // Get the hour of the current time block.
-    var timeBlockHour = $(this).attr('data-hour');
-
-    // Check if the current hour is equal to the hour of the time block.
-    if (currentHour === timeBlockHour) {
-      // Update the time block.
-      $(this).addClass("present");
-    } else if (currentHour > timeBlockHour) {
-      // Update the time block.
-      $(this).addClass("past");
-    } else {
-      // Update the time block.
-      $(this).addClass("future");
-    }
-  });
     
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
@@ -74,30 +53,29 @@ $(function () {
   
   // Starter code. 
   
-  $(document).ready(function () {
-    $('.saveBtn').on('click', function () {
-      // get nearby values
-    });
-    function hourUpdater() {
-      // Get the current hour.
-      var currentHour = dayjs().hour();
-      // loop over time blocks
-      $('.time-block').each(function () {
-        // Get the hour of the current time block.
-        var timeBlockHour = $(this).attr('data-hour');
-        // Check if the current hour is equal to the hour of the time block.
-        if (currentHour === timeBlockHour) {
-
-          // Update the time block.
-          $(this).addClass("present");
-        }
-      });
-    }
-    hourUpdater();
-    setInterval(hourUpdater, 15000);
-    // load any saved data from localStorage
-    $('#hour-9 .description').val(localStorage.getItem('hour-9'));
-    // display current day on page
-    $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY hh:mm A'));
+function hourUpdater() {
+  // Get the current hour.
+  var currentHour = dayjs().hour();
+  // loop over time blocks
+  $('.time-block').each(function () {
+  // Get the hour of the current time block.
+  var timeBlockHour = parseInt($(this).attr('id').split('hour-')[1]);
+  // Check if the current hour is equal to the hour of the time block.
+  if (currentHour === timeBlockHour) {
+  // Update the time block.
+  $(this).addClass("present");
+  } else if (currentHour > timeBlockHour) {
+  // Update the time block.
+  $(this).addClass("past");
+  } else {
+  $(this).addClass("future");
+  }
   });
-  
+}
+
+hourUpdater();
+setInterval(hourUpdater, 15000);
+// load any saved data from localStorage
+$('#hour-8 .description').val(localStorage.getItem('hour-8'));
+// display current day on page
+$('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY hh:mm A'));
