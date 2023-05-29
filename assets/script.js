@@ -3,10 +3,6 @@ var currentDate = dayjs().format('dddd, MMMM DD, YYYY');
 console.log(currentDate);
 $('#currentDay').text(currentDate);
 
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
 function createTimeBlocks() {
   for (var i = 0; i < 24; i++) {
     var hour = i % 12;
@@ -69,6 +65,20 @@ $(document).ready(function () {
     // Storing the descriptions and related time-block in the localStorage:
     localStorage.setItem(hour, tasks);
   })
+
+  $('.saveallBtn').on('click', function () {
+    var allTasks = [];
+      $('.description').each(function() {
+        allTasks.push($(this).val());
+      });
+      // Loop through all hours and store the corresponding task description in localStorage
+      for (var i = 0; i < 24; i++) {
+      localStorage.setItem("hour-" + i, allTasks[i]);
+    }
+    });
+  
+
+
   // Retrieve items from the localStorage by using ids from each time-block div
 function setDescription() {
   for (var i = 0; i <= 23; i++) {
