@@ -24,6 +24,8 @@ textarea {
 
 .time-block {
   border-radius: 15px;
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 .row {
@@ -34,6 +36,7 @@ textarea {
   background-color: #FFEAD2;
   color: #000000;
   border-top: 1px solid #000000;
+  border-left: 1px solid #000000;;
 }
 
 .past {
@@ -53,6 +56,7 @@ textarea {
 
 .saveBtn {
   border-left: 1px solid black;
+  border-top: 1px solid black;
   background-color: #06aed5;
   color: white;
 }
@@ -74,6 +78,8 @@ textarea {
 
 .trashBtn {
   border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
   background-color: #d50644;
   color: white;
 }
