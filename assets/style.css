@@ -37,7 +37,7 @@ textarea {
 }
 
 .past {
-  background-color: #434242;
+  background-color: #9BA4B5;
   color: #FFF8DE;
 }
 
@@ -97,4 +97,5 @@ textarea {
 
 footer {
   font-family: var(--mainfFont);
+  font-size: 20px;
 }
