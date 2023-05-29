@@ -90,7 +90,6 @@ function setDescription() {
   })
 
   function hourTracker() {
-    setDescription();
     var currentHour = dayjs().hour();
 
     $('.time-block').each(function () {
@@ -113,11 +112,23 @@ function setDescription() {
     })
   }
   
-  // call hourTracker and set an interval to let it run every minute
-  hourTracker();
-  setInterval(hourTracker, 60000);
-  var currentDate = dayjs().format('dddd, MMMM DD, YYYY hh:mm a');
-
-  // Update the user interface.
-  $('#currentDay').text(currentDate);
+  $(document).ready(function() {
+    setDescription();
+    hourTracker();
+    var currentDate = dayjs().format('dddd, MMMM DD, YYYY hh:mm:ss a');
+  
+    // Update the user interface.
+    $('#currentDay').text(currentDate);
+  
+    setInterval(function() {
+      hourTracker();
+      var currentDate = dayjs().format('dddd, MMMM DD, YYYY hh:mm:ss a');
+  
+      // Update the user interface.
+      document.getElementById("currentDay").innerHTML = currentDate;
+  
+      // Save the current date and time to local storage.
+      localStorage.setItem("currentDate", currentDate);
+    }, 100);
+  });
 })
