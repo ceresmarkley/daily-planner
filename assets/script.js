@@ -1,18 +1,16 @@
-// Below I try the jQuery method
-var currentDate = dayjs().format('dddd, MMMM DD, YYYY');
-console.log(currentDate);
-$('#currentDay').text(currentDate);
-
+// function to create and append 24, 1 hour time-block div elements to the body of webpage.
 function createTimeBlocks() {
+  //for loop using 24 hours as index reference to create a time-block.
   for (var i = 0; i < 24; i++) {
     var hour = i % 12;
+    // creating ampm variable to determine if a number is AM or PM. to be referenced later when displaying military time.
     var ampm = i < 12 ? "AM" : "PM";
     var divId = "hour-" + hour;
-    
+    // creating if condition to PM divIDs to be recognized differently than their AM counterpart
     if (ampm === "PM") {
       divId = "hour-" + (hour + 12) % 24;
     }
-    
+    // creates div element with id and className
     var div = document.createElement("div");
     div.id = divId;
     div.className = "row time-block";
@@ -53,16 +51,13 @@ function createTimeBlocks() {
 createTimeBlocks();
 
 $(document).ready(function () {
-  //Make a click listener to the saveBtn and get the values stored: 
+  
   $('.saveBtn').on('click', function () {
-    // define and allocate the hour of the related time-block.
-    // this here refers to the same line where .saveBtn class is located.
+    
     var hour = $(this).parent().attr('id');
-    // definte inputs in the description box as tasks.
+    
     var tasks = $(this).siblings('.description').val();
-    // console log to check if my variables are set up correctly
-    console.log(hour, tasks);
-    // Storing the descriptions and related time-block in the localStorage:
+    
     localStorage.setItem(hour, tasks);
   })
 
@@ -71,27 +66,24 @@ $(document).ready(function () {
       $('.description').each(function() {
         allTasks.push($(this).val());
       });
-      // Loop through all hours and store the corresponding task description in localStorage
+      
       for (var i = 0; i < 24; i++) {
       localStorage.setItem("hour-" + i, allTasks[i]);
     }
     });
   
-
-
-  // Retrieve items from the localStorage by using ids from each time-block div
+  
 function setDescription() {
   for (var i = 0; i <= 23; i++) {
     $('#hour-' + i + ' .description').val(localStorage.getItem('hour-' + i));
   }
 }
 
-  // Below I create a listener for the trashBtn and make it retrieve and remove related vals in the localStorage
   $('.trashBtn').on('click', function () {
     localStorage.removeItem($(this).parent().attr('id'));
     $(this).siblings('.description').val('');
   })
-  // Below I created a listener for clearBtn and make it clear out all values and keys in the localStorage
+
   $('.clearBtn').on('click', function () {
     localStorage.clear();
     $('.description').val('');
@@ -102,15 +94,10 @@ function setDescription() {
     var currentHour = dayjs().hour();
 
     $('.time-block').each(function () {
-      // define timeBlock by getting the string value to an numberic value.
-      // Allocate the timeBlock value by finding its id and get rid of non-number values within.
+      
       var timeBlock = parseInt($(this).attr('id').split('hour-')[1]);
       
-      // console log to chedck if the varibles are set up alright
-      console.log(timeBlock);
-      console.log(currentHour);
       
-      // compare the value of timeBlock and the current hour and set the class to 'past' 'presnet' 'future' accordingly
       if (timeBlock === currentHour) {
 
         $(this).addClass('present');
@@ -126,7 +113,11 @@ function setDescription() {
     })
   }
   
-  // kick on the hourTracker and set an interval to let it run every 15000ms
+  // call hourTracker and set an interval to let it run every minute
   hourTracker();
-  setInterval(hourTracker, 15000);
+  setInterval(hourTracker, 60000);
+  var currentDate = dayjs().format('dddd, MMMM DD, YYYY hh:mm a');
+
+  // Update the user interface.
+  $('#currentDay').text(currentDate);
 })
