@@ -1,10 +1,12 @@
 :root {
   --mainfFont: 'Monomaniac One', sans-serif;
+  --mainbackground: #FFEAD2;
 }
 
 body {
   font-family: var(--mainfFont);
   font-size: 16px;
+  background-color: var(--mainbackground);
 }
 
 textarea {
@@ -25,28 +27,28 @@ textarea {
 }
 
 .row {
-  border-top: 1px solid white;
+  border-top: 1px solid #FFEAD2;
 }
 
 .hour {
-  background-color: #ffffff;
+  background-color: #FFEAD2;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border-top: 1px solid #000000;
 }
 
 .past {
-  background-color: #d3d3d3;
-  color: white;
+  background-color: #434242;
+  color: #FFF8DE;
 }
 
 .present {
-  background-color: #ff6961;
-  color: white;
+  background-color: #FFEAD2;
+  color: #FFF8DE;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
+  color: #FFF8DE;
 }
 
 .saveBtn {
@@ -83,6 +85,7 @@ textarea {
 
 .clearBtn {
   margin-top:20px;
+  margin-bottom:20px;
   background-color: #d50644;
   color: white;
 }
