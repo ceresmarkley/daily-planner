@@ -19,5 +19,5 @@ User is able to enter multiple appointment entries and use the 'Save All Button'
 
 
 # Sources and References Used
-https://github.com/Ronin1702/Work-Day-Scheduler - Student Peer who assisted with code references
+https://github.com/Ronin1702/Work-Day-Scheduler - Student Peer who assisted with code references   
 https://git.bootcampcontent.com/Ohio-State-University/OSU-VIRT-FSF-PT-04-2023-U-LOLC/-/tree/main/05-Third-Party-APIs/02-Challenge/Develop - starter code provided from bootcamp
