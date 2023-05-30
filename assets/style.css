@@ -105,3 +105,10 @@ footer {
   font-family: var(--mainfFont);
   font-size: 20px;
 }
+
+/* New CSS for small screens */
+@media (max-width: 1000px) {
+  .time-block {
+    margin: 0;
+  }
+}
