@@ -9,7 +9,7 @@ https://github.com/ceresmarkley/daily-planner - Repo URL
 # How to Section
 ![image](https://github.com/ceresmarkley/daily-planner/assets/129554518/f6223bc8-930a-472d-bbd7-8da71f5b7d36)
 # In use screenshots
-Current time is 17:00. In shot below you can see the past 16:00 is in gray, the future 18:00 is in green, and the present 17:00 is matching pages background.
+Current time is 17:00. In shot below you can see the past 16:00 is in gray, the future 18:00 is in green, and the present 17:00 is matching pages background.   
 ![image](https://github.com/ceresmarkley/daily-planner/assets/129554518/133dd982-3283-480b-9c4e-bc7f03430978)
 User is able to enter multiple appointment entries and use the 'Save All Button' or use the respective save buttons on individual time-block sections to the right of user input. User may also use "Clear All Entries" to delete all appointment entries or use the individual trash buttons oer respective time-block.
 ![image](https://github.com/ceresmarkley/daily-planner/assets/129554518/289873f3-c248-4da9-9fa8-2d101476a26c)
