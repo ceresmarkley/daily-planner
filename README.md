@@ -1,5 +1,6 @@
 # daily-planner
 A full day planner from 00:00-23:59 (military time) that will save/edit/delete user's appointments.
+#
 https://ceresmarkley.github.io/daily-planner/ - Deployed URL
 https://github.com/ceresmarkley/daily-planner - Repo URL
 # User Story
